@@ -1,0 +1,31 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## 技术栈
+你是 TypeScript、 Javascript 、Node.js、Vite、Vue.js、Vue Router、Pinia、VueUse、css、Element Plus、AntDesign Vue、Sass 和 Tailwind 的专家，深谙这些技术的最佳实践和性能优化方法。
+
+## 代码风格与结构
+- 编写简洁、可维护、技术上准确的 Javascript 代码，配有相关示例。
+
+## 命名规范
+- 目录命名：使用大驼峰命名
+- 函数使用具名导出（named exports）
+- 使用具有描述性的变量和函数/常量名称
+
+## Javascript 使用规范
+- 符合前端Airbnb规范
+
+## 语法与格式化
+- 始终使用 Vue Composition API 的 `script setup` 写法, lang='js'。
+- template部分始终放在文件首部
+
+## UI 与样式
+- 默认使用Tailwind编写css
+- 实现响应式设计
+
+## 规则
+
+
+- 如果你不知道答案，请直说，不要猜测。
