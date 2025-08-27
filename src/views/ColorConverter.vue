@@ -19,7 +19,7 @@
               class="w-32 h-32 border-none cursor-pointer rounded-full shadow-lg"
             />
             <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-purple-100 dark:bg-purple-900/50 px-3 py-1 rounded-lg">
-              <span class="text-sm text-purple-700 dark:text-purple-300 font-medium">颜色选择器</span>
+              <!-- <span class="text-sm text-purple-700 dark:text-purple-300 font-medium">颜色选择器</span> -->
             </div>
           </div>
         </div>

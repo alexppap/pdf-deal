@@ -7,6 +7,7 @@ import ImageConverter from '../views/ImageConverter.vue'
 import ImageEditor from '../views/ImageEditor.vue'
 import TimestampConverter from '../views/TimestampConverter.vue'
 import RegexTester from '../views/RegexTester.vue'
+import RandomGenerator from '../views/RandomGenerator.vue'
 
 const routes = [
   {
@@ -48,6 +49,11 @@ const routes = [
     path: '/regex-tester',
     name: 'RegexTester',
     component: RegexTester,
+  },
+  {
+    path: '/random-generator',
+    name: 'RandomGenerator',
+    component: RandomGenerator,
   },
 ]
 

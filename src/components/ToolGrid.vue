@@ -207,6 +207,35 @@
         </div>
       </router-link>
 
+      <!-- 随机数生成器 -->
+      <router-link
+        to="/random-generator"
+        class="group block p-6 bg-white/60 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div class="p-3 bg-pink-100 dark:bg-pink-900/50 rounded-xl mb-4 transition-colors">
+            <svg
+              class="w-8 h-8 text-pink-500 dark:text-pink-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">随机数生成器</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            生成随机数字、字符串、UUID、颜色和安全密码等。
+          </p>
+        </div>
+      </router-link>
+
       <!-- 更多工具 -->
       <div
         class="group flex flex-col items-center justify-center text-center p-6 bg-gray-100/80 dark:bg-slate-800/50 border-2 border-dashed border-gray-300 dark:border-slate-700 rounded-2xl transition-all duration-300 hover:border-indigo-400 hover:bg-white/80 dark:hover:bg-slate-700/80"
