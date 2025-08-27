@@ -98,65 +98,108 @@ const mergePdfs = async () => {
 </script>
 
 <template>
-  <div class="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
-    <h1 class="text-2xl font-bold mb-6 text-center text-gray-700">PDF 合并工具</h1>
-    <p class="text-center text-gray-500 mb-6">请一次性选择4个PDF文件，它们将被合并到单个A4页面中</p>
+  <div class="min-h-screen bg-gray-50 dark:bg-slate-900 p-8">
+    <div class="max-w-2xl mx-auto">
+      <!-- 页面标题 -->
+      <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">PDF 合并工具</h1>
+        <p class="text-gray-600 dark:text-gray-400">请一次性选择4个PDF文件，它们将被合并到单个A4页面中</p>
+      </div>
 
-    <div class="mb-6">
-       <div class="flex flex-col items-center p-6 border-2 border-dashed rounded-lg">
-        <label for="file-upload" class="mb-2 text-sm font-medium text-gray-600">
-           {{ pdfFiles.length === 4 ? '✅ 已选择4个文件' : '点击选择4个PDF文件' }}
-        </label>
-        <input
-          id="file-upload"
-          type="file"
-          multiple
-          accept="application/pdf"
-          @change="handleFileChange"
-          class="block w-full text-sm text-gray-500
-                 file:mr-4 file:py-2 file:px-4
-                 file:rounded-full file:border-0
-                 file:text-sm file:font-semibold
-                 file:bg-violet-50 file:text-violet-700
-                 hover:file:bg-violet-100"
-        />
-        <div v-if="pdfFiles.length > 0" class="mt-4 w-full text-sm text-gray-600">
-            <p class="font-semibold text-center">已选择文件:</p>
-            <ul class="list-none p-0 mt-2 space-y-1">
-                <li v-for="file in pdfFiles" :key="file.name" class="text-xs text-gray-500 truncate mx-auto" :title="file.name">
-                    {{ file.name }}
+      <!-- 主要内容区域 -->
+      <div class="bg-white/60 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-8">
+
+        <div class="mb-6">
+          <div class="flex flex-col items-center p-6 border-2 border-dashed border-blue-300 dark:border-blue-600 rounded-xl transition-all duration-300 hover:border-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20">
+            <div class="p-4 bg-blue-100 dark:bg-blue-900/50 rounded-xl mb-4">
+              <svg class="w-12 h-12 text-blue-500 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <label for="file-upload" class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+              {{ pdfFiles.length === 4 ? '✅ 已选择4个文件' : '选择4个PDF文件' }}
+            </label>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">点击选择或拖拽文件到这里</p>
+            <input
+              id="file-upload"
+              type="file"
+              multiple
+              accept="application/pdf"
+              @change="handleFileChange"
+              class="block w-full text-sm text-gray-500 dark:text-gray-400
+                     file:mr-4 file:py-2 file:px-4
+                     file:rounded-lg file:border-0
+                     file:text-sm file:font-semibold
+                     file:bg-blue-500 file:text-white
+                     hover:file:bg-blue-600"
+            />
+            <div v-if="pdfFiles.length > 0" class="mt-4 w-full">
+              <p class="font-semibold text-center text-gray-900 dark:text-white mb-2">已选择文件:</p>
+              <ul class="space-y-2">
+                <li v-for="file in pdfFiles" :key="file.name" class="text-sm text-gray-600 dark:text-gray-400 truncate text-center bg-gray-50 dark:bg-slate-700 px-3 py-2 rounded-lg" :title="file.name">
+                  {{ file.name }}
                 </li>
-            </ul>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button
+            @click="mergePdfs"
+            :disabled="isLoading || pdfFiles.length !== 4"
+            class="px-8 py-4 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors disabled:cursor-not-allowed"
+          >
+            <span v-if="!isLoading">合并PDF</span>
+            <span v-else class="flex items-center justify-center">
+              <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+              合并中...
+            </span>
+          </button>
+        </div>
+
+        <!-- 错误提示 -->
+        <div v-if="error" class="mt-6 p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-lg">
+          <div class="flex items-center">
+            <svg class="w-5 h-5 text-red-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-red-700 dark:text-red-300">{{ error }}</span>
+          </div>
+        </div>
+
+        <!-- 成功提示 -->
+        <div v-if="mergedPdfUrl" class="mt-6 p-4 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 rounded-lg text-center">
+          <div class="flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-green-700 dark:text-green-300 font-semibold">合并成功！</span>
+          </div>
+          <a
+            :href="mergedPdfUrl"
+            download="merged.pdf"
+            class="inline-block px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg transition-colors"
+          >
+            下载合并后的PDF
+          </a>
         </div>
       </div>
-    </div>
 
-    <div class="flex flex-col items-center">
-      <button
-        @click="mergePdfs"
-        :disabled="isLoading || pdfFiles.length !== 4"
-        class="w-full md:w-auto px-6 py-3 text-white font-semibold rounded-lg shadow-md
-               bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring-2
-               focus:ring-offset-2 focus:ring-violet-500
-               disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
-      >
-        <span v-if="isLoading">正在合并...</span>
-        <span v-else>合并PDF</span>
-      </button>
-
-      <div v-if="error" class="mt-4 text-red-600">
-        {{ error }}
-      </div>
-
-      <div v-if="mergedPdfUrl" class="mt-6 text-center">
-        <h2 class="text-lg font-semibold text-green-600">合并成功!</h2>
-        <a
-          :href="mergedPdfUrl"
-          download="merged.pdf"
-          class="inline-block mt-2 px-6 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600 transition-colors"
+      <!-- 返回按钮 -->
+      <div class="text-center mt-8">
+        <router-link
+          to="/"
+          class="inline-flex items-center px-6 py-3 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
         >
-          下载合并后的PDF
-        </a>
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          返回工具主页
+        </router-link>
       </div>
     </div>
   </div>
