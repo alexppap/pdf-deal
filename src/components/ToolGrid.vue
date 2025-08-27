@@ -149,6 +149,35 @@
         </div>
       </router-link>
 
+      <!-- 图片压缩工具 -->
+      <router-link
+        to="/image-compressor"
+        class="group block p-6 bg-white/60 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div class="p-3 bg-indigo-100 dark:bg-indigo-900/50 rounded-xl mb-4 transition-colors">
+            <svg
+              class="w-8 h-8 text-indigo-500 dark:text-indigo-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">图片压缩工具</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            智能压缩图片文件大小，支持批量处理和质量调节。
+          </p>
+        </div>
+      </router-link>
+
       <!-- 时间戳转换器 -->
       <router-link
         to="/timestamp-converter"
@@ -232,6 +261,35 @@
           <h2 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">随机数生成器</h2>
           <p class="text-gray-600 dark:text-gray-400 text-sm">
             生成随机数字、字符串、UUID、颜色和安全密码等。
+          </p>
+        </div>
+      </router-link>
+
+      <!-- Markdown 编辑器 -->
+      <router-link
+        to="/markdown-editor"
+        class="group block p-6 bg-white/60 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div class="p-3 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl mb-4 transition-colors">
+            <svg
+              class="w-8 h-8 text-emerald-500 dark:text-emerald-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Markdown 编辑器</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            功能强大的Markdown编辑器，支持实时预览和多种导出格式。
           </p>
         </div>
       </router-link>
