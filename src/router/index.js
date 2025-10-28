@@ -10,6 +10,7 @@ import MarkdownEditor from '../views/MarkdownEditor.vue'
 import TimestampConverter from '../views/TimestampConverter.vue'
 import RegexTester from '../views/RegexTester.vue'
 import RandomGenerator from '../views/RandomGenerator.vue'
+import TextTools from '../views/TextTools.vue'
 
 const routes = [
   {
@@ -66,6 +67,11 @@ const routes = [
     path: '/random-generator',
     name: 'RandomGenerator',
     component: RandomGenerator,
+  },
+  {
+    path: '/text-tools',
+    name: 'TextTools',
+    component: TextTools,
   },
 ]
 
