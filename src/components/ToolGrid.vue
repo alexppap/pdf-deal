@@ -294,6 +294,35 @@
         </div>
       </router-link>
 
+      <!-- 文本工具集 -->
+      <router-link
+        to="/text-tools"
+        class="group block p-6 bg-white/60 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div class="p-3 bg-cyan-100 dark:bg-cyan-900/50 rounded-xl mb-4 transition-colors">
+            <svg
+              class="w-8 h-8 text-cyan-500 dark:text-cyan-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">文本工具集</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            大小写转换、去重、排序、查找替换等多种文本处理功能。
+          </p>
+        </div>
+      </router-link>
+
       <!-- 更多工具 -->
       <div
         class="group flex flex-col items-center justify-center text-center p-6 bg-gray-100/80 dark:bg-slate-800/50 border-2 border-dashed border-gray-300 dark:border-slate-700 rounded-2xl transition-all duration-300 hover:border-indigo-400 hover:bg-white/80 dark:hover:bg-slate-700/80"
