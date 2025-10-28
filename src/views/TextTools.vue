@@ -382,19 +382,22 @@ const toggleCase = () => {
 // 升序排序
 const sortAscending = () => {
   const lines = inputText.value.split('\n')
-  outputText.value = lines.sort((a, b) => a.localeCompare(b, 'zh-CN')).join('\n')
+  const sorted = [...lines].sort((a, b) => a.localeCompare(b, 'zh-CN'))
+  outputText.value = sorted.join('\n')
 }
 
 // 降序排序
 const sortDescending = () => {
   const lines = inputText.value.split('\n')
-  outputText.value = lines.sort((a, b) => b.localeCompare(a, 'zh-CN')).join('\n')
+  const sorted = [...lines].sort((a, b) => b.localeCompare(a, 'zh-CN'))
+  outputText.value = sorted.join('\n')
 }
 
 // 按长度排序
 const sortByLength = () => {
   const lines = inputText.value.split('\n')
-  outputText.value = lines.sort((a, b) => a.length - b.length).join('\n')
+  const sorted = [...lines].sort((a, b) => a.length - b.length)
+  outputText.value = sorted.join('\n')
 }
 
 // 去除重复行
@@ -404,10 +407,16 @@ const removeDuplicates = () => {
   outputText.value = uniqueLines.join('\n')
 }
 
-// 随机打乱
+// 随机打乱（使用 Fisher-Yates 洗牌算法）
 const shuffle = () => {
   const lines = inputText.value.split('\n')
-  const shuffled = lines.sort(() => Math.random() - 0.5)
+  const shuffled = [...lines]
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+
   outputText.value = shuffled.join('\n')
 }
 
