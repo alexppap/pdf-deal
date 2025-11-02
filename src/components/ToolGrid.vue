@@ -352,6 +352,35 @@
         </div>
       </router-link>
 
+      <!-- 文本差异对比 -->
+      <router-link
+        to="/text-diff"
+        class="group block p-6 bg-white/60 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div class="p-3 bg-amber-100 dark:bg-amber-900/50 rounded-xl mb-4 transition-colors">
+            <svg
+              class="w-8 h-8 text-amber-500 dark:text-amber-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">文本差异对比</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            智能比较两段文本的差异，支持行级和字符级对比。
+          </p>
+        </div>
+      </router-link>
+
       <!-- 更多工具 -->
       <div
         class="group flex flex-col items-center justify-center text-center p-6 bg-gray-100/80 dark:bg-slate-800/50 border-2 border-dashed border-gray-300 dark:border-slate-700 rounded-2xl transition-all duration-300 hover:border-indigo-400 hover:bg-white/80 dark:hover:bg-slate-700/80"

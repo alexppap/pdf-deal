@@ -12,6 +12,7 @@ import RegexTester from '../views/RegexTester.vue'
 import RandomGenerator from '../views/RandomGenerator.vue'
 import TextTools from '../views/TextTools.vue'
 import QRCodeGenerator from '../views/QRCodeGenerator.vue'
+import TextDiff from '../views/TextDiff.vue'
 
 const routes = [
   {
@@ -78,6 +79,11 @@ const routes = [
     path: '/qrcode-generator',
     name: 'QRCodeGenerator',
     component: QRCodeGenerator,
+  },
+  {
+    path: '/text-diff',
+    name: 'TextDiff',
+    component: TextDiff,
   },
 ]
 
