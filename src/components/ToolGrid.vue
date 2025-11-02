@@ -323,6 +323,35 @@
         </div>
       </router-link>
 
+      <!-- 二维码生成器 -->
+      <router-link
+        to="/qrcode-generator"
+        class="group block p-6 bg-white/60 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:-translate-y-2"
+      >
+        <div class="flex flex-col items-center text-center">
+          <div class="p-3 bg-lime-100 dark:bg-lime-900/50 rounded-xl mb-4 transition-colors">
+            <svg
+              class="w-8 h-8 text-lime-500 dark:text-lime-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"
+              ></path>
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">二维码生成器</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-sm">
+            快速生成文本、URL、WiFi等多种类型的二维码。
+          </p>
+        </div>
+      </router-link>
+
       <!-- 更多工具 -->
       <div
         class="group flex flex-col items-center justify-center text-center p-6 bg-gray-100/80 dark:bg-slate-800/50 border-2 border-dashed border-gray-300 dark:border-slate-700 rounded-2xl transition-all duration-300 hover:border-indigo-400 hover:bg-white/80 dark:hover:bg-slate-700/80"

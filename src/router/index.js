@@ -11,6 +11,7 @@ import TimestampConverter from '../views/TimestampConverter.vue'
 import RegexTester from '../views/RegexTester.vue'
 import RandomGenerator from '../views/RandomGenerator.vue'
 import TextTools from '../views/TextTools.vue'
+import QRCodeGenerator from '../views/QRCodeGenerator.vue'
 
 const routes = [
   {
@@ -72,6 +73,11 @@ const routes = [
     path: '/text-tools',
     name: 'TextTools',
     component: TextTools,
+  },
+  {
+    path: '/qrcode-generator',
+    name: 'QRCodeGenerator',
+    component: QRCodeGenerator,
   },
 ]
 
